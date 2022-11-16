@@ -67,7 +67,7 @@ Loop
 		\begin{itemize}
 			\item If First visit to $s_{k,t}$ in episode $k$ then
 			\begin{itemize}
-					\item $G_t(s) = \sum_{j}^{L_k} r_{k,j}$
+					\item $G_t(s) = \sum_{j=t}^{L_k} r_{k,j}$
 					\item Update weights by $\alpha (G_t - \vect{x}(s_{k,t})^T \vect{w}) \vect{x}(s_{k,t})$
 			\end{itemize}
 		\end{itemize}
