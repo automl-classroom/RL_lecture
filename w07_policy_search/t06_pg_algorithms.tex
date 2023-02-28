@@ -33,7 +33,7 @@
 %----------------------------------------------------------------------
 \begin{frame}[c]{Policy Gradient: Use Temporal Structure}
 \vspace{-1.5em}
-$$ \nabla_\theta \mathbb{E}_\tau [R] = \mathbb{E}_\tau \left[ \left(\sum_{t=0}^{T-1} r_t\right) \left( \sum_{t=0}^{T-1} \nabla_\theta \log \pi_\theta(a_t \mid s_t) \right) \right]$$
+$$ \nabla_\theta \mathbb{E}_\tau [V(\theta)] = \mathbb{E}_\tau \left[ \left(\sum_{t=0}^{T-1} r_t\right) \left( \sum_{t=0}^{T-1} \nabla_\theta \log \pi_\theta(a_t \mid s_t) \right) \right]$$
 	
 We can repeat the same argument to derive the gradient estimator for a single reward term $r_{t'}$
 
@@ -42,7 +42,7 @@ $$\nabla_\theta \mathbb{E} [r_{t'}] = \mathbb{E} \left[r_{t'} \sum_{t=0}^{t'} \n
 Summing this formula over $t$, we obtain:
 
 \begin{eqnarray}
-\nabla_\theta V(\theta) = \nabla_\theta \mathbb{E}[R] &=& \mathbb{E} \left[ \sum_{t'=0}^{T-1} r_{t'} \sum^{t'}_{t=0} \nabla_\theta \log \pi_\theta (a_t \mid s_t)  \right]\nonumber\\
+\nabla_\theta V(\theta) &=& \mathbb{E} \left[ \sum_{t'=0}^{T-1} r_{t'} \sum^{t'}_{t=0} \nabla_\theta \log \pi_\theta (a_t \mid s_t)  \right]\nonumber\\
 &=& \mathbb{E} \left[ \sum_{t=0}^{T-1}  \nabla_\theta \log \pi_\theta (a_t \mid s_t)   \sum^{T-1}_{t'=t} r_{t'}  \right]\nonumber
 \end{eqnarray}
 
